@@ -9,22 +9,21 @@
           <button type="button" class="btn btn-primary float-left" v-on:click="changeList">GRID</button>
           <button type="button" class="btn btn-dark float-right" v-on:click="changeGrid">LIST</button>
         </div>
-        <div v-for="(blog, index) in filteredBlogs" :key="index">
-          <div class="media py-2" >         
-            <img :src="blog.urlToImage" class="mx-2 rounded img-fluid" :alt="blog.source.name" style="width: 100px; height: 100px">
-            <div class="media-body">
-              <router-link v-bind:to="'/blog/'+blog.source.id" class="name-link">
-                <h5 class="mt-0 mb-1">{{blog.source.name}}</h5>
-              </router-link>
-                {{blog.content | snippet}}
-              <br><br>
-              <router-link v-bind:to="'/blog/'+blog.source.id" class="read-link">
-                <span class="">Read more</span>
-              </router-link>
+
+        <div class="row py-2">
+          <div class="col-sm-6 col-md-4" v-for="(blog, index) in filteredBlogs" :key="index">
+            <div class="card">
+              <img :src="blog.urlToImage" class="card-img-top" :alt="blog.source.name">
+              <div class="card-body">
+                <h5 class="card-title">{{blog.source.name}}</h5>
+                <p class="card-text">{{blog.content | snippet}}</p>
+                <router-link v-bind:to="'/blog/'+blog.source.id" class="btn btn-primary">
+                  <span class="">Read more</span>
+                </router-link>
+              </div>
             </div>
           </div>
-          <hr class="my-3">      
-        </div>        
+        </div>
       </div>
 
       <div class="col-md-3 ml-md-auto">
@@ -71,20 +70,4 @@ export default {
   .blog-body {
     border-right: 2px solid grey;
   }
-
-  .name-link, .read-link {
-    text-decoration: none;
-  }
-
-  .read-link {
-    color: rgba(255, 0, 0, 0.7);
-    font-style: italic;
-  }
-
-@media only screen and (max-width: 850px) {
-  br {
-    display: none;
-  }
-}
-
 </style>

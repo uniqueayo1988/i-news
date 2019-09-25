@@ -10,8 +10,12 @@ Vue.use(VueResource)
 
 Vue.http.options.root = URL
 
-Vue.filter('snippet', function (value) {
-  return value.slice(0, 120) + '...'
+export const bus = new Vue()
+
+Vue.filter('snippet', (value) => {
+  if (value !== null) {
+    return value.slice(0, 120) + '...'
+  }
 })
 
 new Vue({
