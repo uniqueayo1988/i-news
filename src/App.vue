@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light p-3">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
       <router-link to="/" class="navbar-brand"><span class="i-news">i</span>NEWS</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -69,6 +69,11 @@ export default {
 }
 </script>
 <style scoped="">
+  #app {
+    font-family: 'Nunito SemiBold';
+    background: rgba(0, 0, 255, 0.1);
+  }
+
   .navbar-brand {
     font-size: 35px;
     font-family: 'Saira Stencil One', cursive;
