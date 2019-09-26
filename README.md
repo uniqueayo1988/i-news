@@ -2,28 +2,26 @@
 
 ## Project setup
 ```
+git clone https://github.com/uniqueayo1988/i-news.git
+```
+```
+cd i-news
+```
+```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### To serve app for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+### To view app from server
 ```
-npm run build
+http://localhost:8080/
 ```
+Click `Signup` to register and be redirected to the blog view page
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### To do
+- The Signup and Login form will be validated
+- The state management will be implemented with vuex
