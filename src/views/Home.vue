@@ -4,14 +4,14 @@
       <p class="lead" slot="sub-title">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
       <p slot="intro">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
     </BodyImage>
-    <component v-bind:is="component" v-bind:blogs="blogs" v-on:changeGrid="changeGrid($event)" v-on:changeList="changeList($event)"/>
-<!--     <AllNews v-bind:blogs="blogs"/>
-    <GridView v-bind:blogs="blogs"/> -->
+    <component v-bind:is="component" v-bind:blogs="blogs" v-on:changeGrid="changeGrid($event)" v-on:changeList="changeList($event)" v-if="isAuth"/>
+    <AppBody v-else />
   </div>
 </template>
 
 <script>
 import BodyImage from '@/components/BodyImage'
+import AppBody from '@/components/AppBody'
 import AllNews from '@/components/AllNews'
 import GridView from '@/components/GridView'
 import { API_KEY } from '../utils/utils'
@@ -20,8 +20,12 @@ import { bus } from '../main'
 export default {
   components: {
     BodyImage,
+    AppBody,
     AllNews,
     GridView
+  },
+  props: {
+    isAuth: Boolean
   },
   data () {
     return {
@@ -31,6 +35,7 @@ export default {
     }
   },
   created () {
+    console.log(this.isAuth, '.....isauth')
     this.$http.get(`?country=us&apiKey=${API_KEY}`)
       .then(response => {
         return response.json()
