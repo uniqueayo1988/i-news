@@ -26,43 +26,17 @@
         </div>
       </div>
 
-      <div class="col-md-3 ml-md-auto">
-        <h1>Links for more view</h1>
-      </div>   
+      <SideBar v-bind:blogs="blogs"/>
     </div>
 
   </div>
 </template>
 
 <script>
-import { bus } from '../main'
+import blogMixin from '../mixins/blogMixin'
 
 export default {
-  components: {
-  },
-  props: {
-    blogs: Array
-  },
-  data () {
-    return {
-      search: ''
-    }
-  },
-  computed: {
-    filteredBlogs () {
-      return this.blogs.filter((blog) => {
-        return blog.source.name.toLowerCase().includes(this.search.toLowerCase())
-      })
-    }
-  },
-  methods: {
-    changeGrid () {
-      bus.$emit('changedGrid', 'AllNews')
-    },
-    changeList () {
-      bus.$emit('changedList', 'GridView')
-    }
-  }
+  mixins: [blogMixin]
 }
 </script>
 
