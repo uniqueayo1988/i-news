@@ -14,7 +14,6 @@ import BodyImage from '@/components/BodyImage'
 import AppBody from '@/components/AppBody'
 import AllNews from '@/components/AllNews'
 import GridView from '@/components/GridView'
-import { API_KEY } from '../utils/utils'
 import { bus } from '../main'
 
 export default {
@@ -35,14 +34,12 @@ export default {
     }
   },
   created () {
-    console.log(this.isAuth, '.....isauth')
-    this.$http.get(`?country=us&apiKey=${API_KEY}`)
+    this.$http.get(`?country=us&apiKey=${process.env.VUE_APP_KEY}`)
       .then(response => {
         return response.json()
       })
       .then(data => {
         this.blogs = data.articles.slice(0, 10)
-        console.log(this.blogs, '......blogsSssS.....')
       })
 
     bus.$on('changedGrid', (data) => {
