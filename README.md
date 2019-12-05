@@ -1,5 +1,7 @@
 # i-news
 
+[![Build Status](https://travis-ci.org/uniqueayo1988/i-news.svg?branch=master)](https://travis-ci.org/uniqueayo1988/i-news)
+
 ## Project setup
 ```
 git clone https://github.com/uniqueayo1988/i-news.git
